@@ -21,6 +21,7 @@ let aGOT = new Book('A Game of Thrones', 'George R.R. Martin', 694);
 addBookToLibrary(theHobbit);
 addBookToLibrary(aGOT);
 
+
 console.log(myLibrary);
 
 function displayBooks () {
@@ -31,10 +32,16 @@ function displayBooks () {
     const addBook = document.createElement('div');
     addBook.setAttribute('class', 'book');
     
-    const info = document.createElement('p');
-    info.textContent = book.info();
+    const title = document.createElement('p');
+    title.textContent = '"' + book.title + '"';
 
-    addBook.appendChild(info);
+    const author = document.createElement('p');
+    author.textContent = "Written by " + book.author;
+
+    const pages = document.createElement('p');
+    pages.textContent = book.pages + " pages";
+
+    addBook.appendChild(title).appendChild(author).appendChild(pages);
     bookshelve.appendChild(addBook);
   }
 }
