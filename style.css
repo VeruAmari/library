@@ -72,13 +72,14 @@ span:nth-child(2) {
 
 .add-book-form {
   position: fixed;
+  z-index: 1;
   left: 0px;
   top: 0px;
 
   background-color: #fff;
   border: none;
   border-radius: var(--border-radius);
-  min-width: 30vw;
+  min-width: 50vw;
   min-height: 100vh;
   
   display: grid;
@@ -87,7 +88,7 @@ span:nth-child(2) {
 }
 
 .remove-book {
-  position: absolute;
+  position: fixed;
   min-width: 1.5rem;
   min-height: 1.5rem;
 }
