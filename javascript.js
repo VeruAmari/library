@@ -1,5 +1,6 @@
 
 const myLibrary = [];
+let BOOKSCOUNT = 0;
 
 const form = document.querySelector("form");
 const formClose = document.querySelector(".close");
@@ -33,6 +34,12 @@ function staticAddBooks () {
   addBookToLibrary(wheelOfTime1);
 }
 
+function removeParent (button) {
+  const removeId = "#" + button.target.id.split("remove-")[1];
+  const remove = document.querySelector(removeId);
+  document.querySelector(".container").removeChild(remove);
+}
+
 function updateBooks (aLibrary) {
 
   for (book of aLibrary) {
@@ -54,7 +61,16 @@ function updateBooks (aLibrary) {
         addBook.appendChild(info);
       }
     }
+    addBook.setAttribute('id', "book-" + BOOKSCOUNT)
+    console.log(addBook)
+    const closeButton = document.createElement("button");
+    closeButton.textContent = "X";
+    closeButton.setAttribute("class", "remove-book");
+    closeButton.setAttribute("id", "remove-book-" + BOOKSCOUNT);
+    closeButton.addEventListener("click", removeParent);
 
+    addBook.appendChild(closeButton);
+    BOOKSCOUNT += 1;
     BOOKSHELF.appendChild(addBook);
   }
 }
