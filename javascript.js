@@ -30,9 +30,9 @@ function staticAddBooks () {
   addBookToLibrary(wheelOfTime1);
 }
 
-function displayBooks () {
+function displayAllBooks (aLibrary) {
 
-  for (book of myLibrary) {
+  for (book of aLibrary) {
     const addBook = document.createElement('div');
     addBook.setAttribute('class', 'book');
 
@@ -66,6 +66,15 @@ function displayButton () {
   buttonContainer.appendChild(button);
 
   BOOKSHELF.appendChild(buttonContainer);
+
+  const addBookButton = document.querySelector(".add.book");
+  addBookButton.addEventListener("click", toggleForm);
+}
+
+function moveButton () {
+  const addBookButton = document.querySelector(".add.book");
+  const container = document.querySelector(".container");
+  container.removeChild(addBookButton);
 }
 
 function toggleForm () {
@@ -74,15 +83,20 @@ function toggleForm () {
 
 function handleForm (event) {
   event.preventDefault();
+  const newTitle = document.querySelector("#title").value;
+  const newAuthor = document.querySelector('#author').value;
+  const newPages = document.querySelector('#pages').value;
+  const newBook = new Book(newTitle, newAuthor, newPages);
 
-  toggleForm();
+  addBookToLibrary(newBook);
+  moveButton();
+  displayAllBooks([newBook]);
+  displayButton();
 }
 form.addEventListener("submit", handleForm);
 
 
 staticAddBooks();
-displayBooks();
+displayAllBooks(myLibrary);
 
 displayButton();
-const addBookButton = document.querySelector(".add.book");
-addBookButton.addEventListener("click", toggleForm);
