@@ -20,7 +20,6 @@ function displayBooks () {
   const bookshelve = document.querySelector(".container");
 
   for (book of myLibrary) {
-    // console.log(book.info());
     const addBook = document.createElement('div');
     addBook.setAttribute('class', 'book');
 
@@ -28,11 +27,13 @@ function displayBooks () {
       if (typeof book[element] != 'function') {
 
         const info = document.createElement('p');
+        info.setAttribute('class', 'info')
         const infoTitle = document.createElement('span');
         infoTitle.textContent = element[0].toUpperCase() + element.substring(1) + ": ";
         const infoContent = document.createElement('span');
         infoContent.textContent = book[element];
-        info.appendChild(infoTitle).appendChild(infoContent);
+        info.appendChild(infoTitle);
+        info.appendChild(infoContent);
 
         addBook.appendChild(info);
       }
@@ -43,10 +44,11 @@ function displayBooks () {
 }
 
 function createButton () {
+  console.log("Hello world.");
 }
 
-let theHobbit = new Book('The Hobbit', 'J.R.R. Tolkien', 310);
-let aGOT = new Book('A Game of Thrones', 'George R.R. Martin', 694);
+const theHobbit = new Book('The Hobbit', 'J.R.R. Tolkien', 310);
+const aGOT = new Book('A Game of Thrones', 'George R.R. Martin', 694);
 addBookToLibrary(theHobbit);
 addBookToLibrary(aGOT);
 
@@ -55,3 +57,4 @@ console.log(myLibrary);
 
 
 displayBooks();
+createButton();

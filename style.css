@@ -26,3 +26,17 @@
   line-height: 1.5rem;
   box-shadow: 1px 1px 5px 0px #aaa;
 }
+
+.info {
+  display: grid;
+  grid-template-rows: auto auto;
+  grid-template-columns: 1fr 2fr;
+}
+
+span:nth-child(1) {
+  justify-self: right;
+  padding-right: 1rem;
+}
+span:nth-child(2) {
+  justify-self: left;
+}
