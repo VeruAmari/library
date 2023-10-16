@@ -16,6 +16,45 @@ function addBookToLibrary(book) {
   console.log(book.title + ' has been added to the library.')
 }
 
+function displayBooks () {
+  const bookshelve = document.querySelector(".container");
+
+  for (book of myLibrary) {
+    // console.log(book.info());
+    const addBook = document.createElement('div');
+    addBook.setAttribute('class', 'book');
+    
+    // const title = document.createElement('p');
+    // title.textContent = '"' + book.title + '"';
+
+    // const author = document.createElement('p');
+    // author.textContent = "Written by " + book.author;
+
+    // const pages = document.createElement('p');
+    // pages.textContent = book.pages + " pages";
+
+    for (element in book) {
+      if (typeof book[element] != 'function') {
+
+        const info = document.createElement('p');
+        const infoTitle = document.createElement('span');
+        infoTitle.textContent = element[0].toUpperCase() + element.substring(1) + ": ";
+        const infoContent = document.createElement('span');
+        infoContent.textContent = book[element];
+        info.appendChild(infoTitle).appendChild(infoContent);
+
+        addBook.appendChild(info);
+      }
+    }
+
+    // addBook.appendChild(title).appendChild(author).appendChild(pages);
+    bookshelve.appendChild(addBook);
+  }
+}
+
+function createButton () {
+}
+
 let theHobbit = new Book('The Hobbit', 'J.R.R. Tolkien', 310);
 let aGOT = new Book('A Game of Thrones', 'George R.R. Martin', 694);
 addBookToLibrary(theHobbit);
@@ -24,26 +63,5 @@ addBookToLibrary(aGOT);
 
 console.log(myLibrary);
 
-function displayBooks () {
-  const bookshelve = document.querySelector(".container");
-
-  for (book of myLibrary) {
-    console.log(book.info());
-    const addBook = document.createElement('div');
-    addBook.setAttribute('class', 'book');
-    
-    const title = document.createElement('p');
-    title.textContent = '"' + book.title + '"';
-
-    const author = document.createElement('p');
-    author.textContent = "Written by " + book.author;
-
-    const pages = document.createElement('p');
-    pages.textContent = book.pages + " pages";
-
-    addBook.appendChild(title).appendChild(author).appendChild(pages);
-    bookshelve.appendChild(addBook);
-  }
-}
 
 displayBooks();
