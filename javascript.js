@@ -23,15 +23,6 @@ function displayBooks () {
     // console.log(book.info());
     const addBook = document.createElement('div');
     addBook.setAttribute('class', 'book');
-    
-    // const title = document.createElement('p');
-    // title.textContent = '"' + book.title + '"';
-
-    // const author = document.createElement('p');
-    // author.textContent = "Written by " + book.author;
-
-    // const pages = document.createElement('p');
-    // pages.textContent = book.pages + " pages";
 
     for (element in book) {
       if (typeof book[element] != 'function') {
@@ -47,7 +38,6 @@ function displayBooks () {
       }
     }
 
-    // addBook.appendChild(title).appendChild(author).appendChild(pages);
     bookshelve.appendChild(addBook);
   }
 }
