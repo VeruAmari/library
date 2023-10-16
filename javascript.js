@@ -8,13 +8,14 @@ formClose.addEventListener("click", toggleForm);
 const BOOKSHELF = document.querySelector(".container");
 
 
-function Book(title, author, pages) {
+function Book(title, author, pages, status) {
   this.title = title;
   this.author = author;
   this.pages = pages;
+  this.status = status;
 
   this.info = function() {
-    return this.title + " by " + this.author + ", " + this.pages + " pages.";
+    return this.title + " by " + this.author + ", " + this.pages + " pages. Status: " + this.status + ".";
   }
 }
 
@@ -24,10 +25,10 @@ function addBookToLibrary(book) {
 }
 
 function staticAddBooks () {
-  const theHobbit = new Book('The Hobbit', 'J.R.R. Tolkien', 310);
-  const aGOT = new Book('A Game of Thrones', 'George R.R. Martin', 694);
-  const wheelOfTime1 = new Book('The Eye of the World', 'Robert Jordan', 782);
-  addBookToLibrary(theHobbit);
+  //const theHobbit = new Book('The Hobbit', 'J.R.R. Tolkien', 310, "Unread");
+  const aGOT = new Book('A Game of Thrones', 'George R.R. Martin', 694, "Read");
+  const wheelOfTime1 = new Book('The Eye of the World', 'Robert Jordan', 782, "Read");
+  //addBookToLibrary(theHobbit);
   addBookToLibrary(aGOT);
   addBookToLibrary(wheelOfTime1);
 }
@@ -88,7 +89,11 @@ function handleForm (event) {
   const newTitle = document.querySelector("#title").value;
   const newAuthor = document.querySelector('#author').value;
   const newPages = document.querySelector('#pages').value;
-  const newBook = new Book(newTitle, newAuthor, newPages);
+  const newRead = document.querySelector('#status').checked;
+
+  function read(stat) {return stat ? "Read" : "Unread"}
+  
+  const newBook = new Book(newTitle, newAuthor, newPages, read(newRead));
 
   addBookToLibrary(newBook);
   moveButton();
