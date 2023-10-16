@@ -2,6 +2,8 @@
 const myLibrary = [];
 
 const form = document.querySelector("form");
+const formClose = document.querySelector(".close");
+formClose.addEventListener("click", toggleForm);
 
 const BOOKSHELF = document.querySelector(".container");
 
@@ -94,7 +96,6 @@ function handleForm (event) {
   displayButton();
 }
 form.addEventListener("submit", handleForm);
-
 
 staticAddBooks();
 displayAllBooks(myLibrary);
