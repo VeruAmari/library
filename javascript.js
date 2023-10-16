@@ -1,6 +1,8 @@
 
 const myLibrary = [];
 
+const BOOKSHELF = document.querySelector(".container");
+
 function Book(title, author, pages) {
   this.title = title;
   this.author = author;
@@ -17,7 +19,6 @@ function addBookToLibrary(book) {
 }
 
 function displayBooks () {
-  const bookshelve = document.querySelector(".container");
 
   for (book of myLibrary) {
     const addBook = document.createElement('div');
@@ -39,12 +40,14 @@ function displayBooks () {
       }
     }
 
-    bookshelve.appendChild(addBook);
+    BOOKSHELF.appendChild(addBook);
   }
 }
 
-function createButton () {
-  console.log("Hello world.");
+function displayButton () {
+  const buttonSurface = document.createElement('div');
+  buttonSurface.setAttribute('class', 'add book');
+  BOOKSHELF.appendChild(buttonSurface);
 }
 
 const theHobbit = new Book('The Hobbit', 'J.R.R. Tolkien', 310);
@@ -57,4 +60,4 @@ console.log(myLibrary);
 
 
 displayBooks();
-createButton();
+displayButton();
