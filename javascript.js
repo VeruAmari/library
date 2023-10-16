@@ -40,6 +40,10 @@ function removeParent (button) {
   document.querySelector(".container").removeChild(remove);
 }
 
+function toggleReadStatus () {
+  // TODO
+}
+
 function updateBooks (aLibrary) {
 
   for (book of aLibrary) {
