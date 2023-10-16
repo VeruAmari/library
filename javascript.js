@@ -1,7 +1,10 @@
 
 const myLibrary = [];
 
+const form = document.querySelector("form");
+
 const BOOKSHELF = document.querySelector(".container");
+
 
 function Book(title, author, pages) {
   this.title = title;
@@ -65,7 +68,21 @@ function displayButton () {
   BOOKSHELF.appendChild(buttonContainer);
 }
 
-staticAddBooks();
+function toggleForm () {
+  form.classList.toggle("hidden");
+}
 
+function handleForm (event) {
+  event.preventDefault();
+
+  toggleForm();
+}
+form.addEventListener("submit", handleForm);
+
+
+staticAddBooks();
 displayBooks();
+
 displayButton();
+const addBookButton = document.querySelector(".add.book");
+addBookButton.addEventListener("click", toggleForm);

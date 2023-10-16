@@ -1,7 +1,7 @@
 :root {
   --light-color-1: #fff;
   --light-color-2: rgb(224, 224, 224);
-  --highlight-color-1: rgb(80, 124, 201);
+  --highlight-color-1: rgb(73, 104, 156);
   --highlight-color-2: rgb(188, 239, 255);
   --highlight-color-3: rgb(139, 132, 226);
 
@@ -63,4 +63,25 @@ span:nth-child(2) {
   background-color: var(--highlight-color-2);
   color: var(--highlight-color-1);
   border: solid 2px var(--highlight-color-1);
+}
+
+.hidden {
+  visibility: hidden;
+  
+}
+
+.add-book-form {
+  position: fixed;
+  left: 0px;
+  top: 0px;
+
+  background-color: #fff;
+  border: none;
+  border-radius: var(--border-radius);
+  min-width: 30vw;
+  min-height: 100vh;
+  
+  display: grid;
+  justify-content: center;
+  align-items: center;
 }
