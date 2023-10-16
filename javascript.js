@@ -58,6 +58,7 @@ function displayButton () {
   buttonContainer.setAttribute('class', 'add book');
 
   const button = document.createElement('button');
+  button.textContent = '+ ADD BOOK';
 
   buttonContainer.appendChild(button);
 
