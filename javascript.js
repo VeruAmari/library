@@ -18,6 +18,15 @@ function addBookToLibrary(book) {
   console.log(book.title + ' has been added to the library.')
 }
 
+function staticAddBooks () {
+  const theHobbit = new Book('The Hobbit', 'J.R.R. Tolkien', 310);
+  const aGOT = new Book('A Game of Thrones', 'George R.R. Martin', 694);
+  const wheelOfTime1 = new Book('The Eye of the World', 'Robert Jordan', 782);
+  addBookToLibrary(theHobbit);
+  addBookToLibrary(aGOT);
+  addBookToLibrary(wheelOfTime1);
+}
+
 function displayBooks () {
 
   for (book of myLibrary) {
@@ -45,21 +54,17 @@ function displayBooks () {
 }
 
 function displayButton () {
-  const buttonSurface = document.createElement('div');
-  buttonSurface.setAttribute('class', 'add book');
-  BOOKSHELF.appendChild(buttonSurface);
+  const buttonContainer = document.createElement('div');
+  buttonContainer.setAttribute('class', 'add book');
+
+  const button = document.createElement('button');
+
+  buttonContainer.appendChild(button);
+
+  BOOKSHELF.appendChild(buttonContainer);
 }
 
-const theHobbit = new Book('The Hobbit', 'J.R.R. Tolkien', 310);
-const aGOT = new Book('A Game of Thrones', 'George R.R. Martin', 694);
-const wheelOfTime1 = new Book('The Eye of the World', 'Robert Jordan', 782);
-addBookToLibrary(theHobbit);
-addBookToLibrary(aGOT);
-addBookToLibrary(wheelOfTime1);
-
-
-console.log(myLibrary);
-
+staticAddBooks();
 
 displayBooks();
 displayButton();
