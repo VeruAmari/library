@@ -33,7 +33,7 @@ function staticAddBooks () {
   addBookToLibrary(wheelOfTime1);
 }
 
-function displayAllBooks (aLibrary) {
+function updateBooks (aLibrary) {
 
   for (book of aLibrary) {
     const addBook = document.createElement('div');
@@ -92,17 +92,17 @@ function handleForm (event) {
   const newRead = document.querySelector('#status').checked;
 
   function read(stat) {return stat ? "Read" : "Unread"}
-  
+
   const newBook = new Book(newTitle, newAuthor, newPages, read(newRead));
 
   addBookToLibrary(newBook);
   moveButton();
-  displayAllBooks([newBook]);
+  updateBooks([newBook]);
   displayButton();
 }
 form.addEventListener("submit", handleForm);
 
 staticAddBooks();
-displayAllBooks(myLibrary);
+updateBooks(myLibrary);
 
 displayButton();
