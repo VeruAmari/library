@@ -52,8 +52,10 @@ function displayButton () {
 
 const theHobbit = new Book('The Hobbit', 'J.R.R. Tolkien', 310);
 const aGOT = new Book('A Game of Thrones', 'George R.R. Martin', 694);
+const wheelOfTime1 = new Book('The Eye of the World', 'Robert Jordan', 782);
 addBookToLibrary(theHobbit);
 addBookToLibrary(aGOT);
+addBookToLibrary(wheelOfTime1);
 
 
 console.log(myLibrary);
