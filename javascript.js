@@ -40,8 +40,8 @@ function removeParent (button) {
   document.querySelector(".container").removeChild(remove);
 }
 
-function toggleReadStatus () {
-  // TODO
+function toggleReadStatus (event) {
+  console.log(event);
 }
 
 function updateBooks (aLibrary) {
@@ -59,12 +59,21 @@ function updateBooks (aLibrary) {
 
     for (element in book) {
       if (typeof book[element] != 'function') {
-
         const info = document.createElement('p');
         info.setAttribute('class', 'info')
         const infoTitle = document.createElement('span');
         infoTitle.textContent = element[0].toUpperCase() + element.substring(1) + ": ";
-        const infoContent = document.createElement('span');
+
+        let infoContent;
+        if (element === 'status') {
+          console.log(element);
+          infoContent = document.createElement('button');
+          infoContent.setAttribute("id", "toggle-book-" + BOOKSCOUNT);
+          infoContent.addEventListener("click", toggleReadStatus);
+        } else {
+          infoContent = document.createElement('span');
+        }
+
         infoContent.textContent = book[element];
         info.appendChild(infoTitle);
         info.appendChild(infoContent);
