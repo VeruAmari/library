@@ -149,6 +149,7 @@ function handleForm (event) {
   moveButton();
   updateBooks([newBook]);
   displayButton();
+  toggleForm();
 }
 form.addEventListener("submit", handleForm);
 
