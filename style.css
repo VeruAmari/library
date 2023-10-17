@@ -1,8 +1,8 @@
 :root {
   --light-color-1: #fff;
   --light-color-2: rgb(224, 224, 224);
-  --highlight-color-1: rgb(73, 104, 156);
-  --highlight-color-2: rgb(188, 239, 255);
+  --highlight-color-1: rgb(133, 56, 148);
+  --highlight-color-2: rgb(222, 250, 255);
   --highlight-color-3: rgb(139, 132, 226);
 
   --border-radius: 7px;
@@ -51,18 +51,22 @@ span:nth-child(2) {
 
 .add {
   grid-template: 1fr / 1fr;
+  padding: 0px;
+}
+button {
+  border: solid 1px var(--highlight-color-1);
+  background-color: var(--highlight-color-2);
+  border-radius: var(--border-radius);
+  color: var(--highlight-color-1);
+  font-size: 1rem;
+  font-weight: bold;
 }
 .add > button {
-  border: solid 2px var(--highlight-color-2);
-  background-color: var(--highlight-color-1);
-  border-radius: var(--border-radius);
-  color: var(--highlight-color-2);
   font-size: 1.5rem;
 }
-.add > button:hover {
-  background-color: var(--highlight-color-2);
-  color: var(--highlight-color-1);
-  border: solid 2px var(--highlight-color-1);
+button:hover {
+  background-color: var(--highlight-color-1);
+  color: var(--highlight-color-2);
 }
 
 .hidden {
@@ -79,12 +83,23 @@ span:nth-child(2) {
   background-color: #fff;
   border: none;
   border-radius: var(--border-radius);
-  min-width: 50vw;
+  padding: 5rem;
   min-height: 100vh;
   
   display: grid;
   justify-content: center;
-  align-items: center;
+  align-content: start;
+  align-items: start;
+  gap: 3rem;
+}
+input[type=text],
+input[type=tel] {
+  border-radius: var(--border-radius);
+  height: 2rem;
+  width: 100%;
+}
+.add-book-form > button {
+  height: 2rem;
 }
 
 .remove-book {
