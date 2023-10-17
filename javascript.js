@@ -46,6 +46,13 @@ function toggleReadStatus () {
 
 function updateBooks (aLibrary) {
 
+  /*
+  Takes in an array of Book objects and adds each
+  to the DOM, generating all elements required for
+  the book-card.
+
+  Returns undefined.
+  */
   for (book of aLibrary) {
     const addBook = document.createElement('div');
     addBook.setAttribute('class', 'book');
