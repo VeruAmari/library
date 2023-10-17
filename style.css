@@ -75,22 +75,24 @@ button:hover {
 }
 
 .add-book-form {
-  position: fixed;
+  position: absolute;
   z-index: 1;
   left: 0px;
   top: 0px;
 
   background-color: #fff;
   border: none;
-  border-radius: var(--border-radius);
-  padding: 5rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
   min-height: 100vh;
   
   display: grid;
   justify-content: center;
   align-content: start;
   align-items: start;
-  gap: 3rem;
+  gap: 1rem;
+
+  overflow-y: scroll;
 }
 input[type=text],
 input[type=tel] {
@@ -101,9 +103,33 @@ input[type=tel] {
 .add-book-form > button {
   height: 2rem;
 }
-
+.close {
+  width: 5ex;
+  height: 5ex;
+  justify-self: end;
+  text-align: center;
+  vertical-align: center;
+  border-radius: 0;
+  margin-right: -2rem;
+}
+.close,
 .remove-book {
-  position: fixed;
-  min-width: 1.5rem;
-  min-height: 1.5rem;
+  background-color: var(--highlight-color-1);
+  color: var(--highlight-color-2);
+}
+.close:hover,
+.remove-book:hover {
+  background-color: var(--highlight-color-2);
+  color: var(--highlight-color-1);
+}
+.add-book-btn {
+  margin-bottom: 2rem;
+}
+.remove-book {
+  position: absolute;
+  min-width: 2rem;
+  min-height: 2rem;
+  margin-top: -1rem;
+  margin-left: -1rem;
+  border-radius: 0px;
 }
