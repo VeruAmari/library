@@ -99,18 +99,19 @@ input[type=tel] {
   border-radius: var(--border-radius);
   height: 2rem;
   width: 100%;
+  padding-left: 1ex;
+  font-size: 1rem;
 }
 .add-book-form > button {
   height: 2rem;
 }
 .close {
-  width: 5ex;
-  height: 5ex;
-  justify-self: end;
+  min-width: 2.5rem;
+  min-height: 2.5rem;
+  justify-self: start;
   text-align: center;
   vertical-align: center;
   border-radius: 0;
-  margin-right: -2rem;
 }
 .close,
 .remove-book {
