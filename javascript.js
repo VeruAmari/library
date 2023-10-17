@@ -41,7 +41,22 @@ function removeParent (button) {
 }
 
 function toggleReadStatus (event) {
-  console.log(event);
+  //console.table(myLibrary);
+  let togBook = event.target.id.split("toggle-")[1];
+  let getBookTitle = document.getElementById(togBook).firstChild.lastChild.textContent;
+
+
+  let arrayIndex = myLibrary.findIndex((b)=> b["title"] === getBookTitle);
+  console.log("Current status: " + myLibrary[arrayIndex].status);
+  if (myLibrary[arrayIndex].status === "Read") {
+    myLibrary[arrayIndex].status = "Unread";
+    event.target.textContent = myLibrary[arrayIndex].status;
+    console.log("Changing " + myLibrary[arrayIndex].title + " status to " + myLibrary[arrayIndex].status);
+  } else {
+    myLibrary[arrayIndex].status = "Read";
+    event.target.textContent = myLibrary[arrayIndex].status;
+    console.log("Changing " + myLibrary[arrayIndex].title + " status to " + myLibrary[arrayIndex].status);
+  }
 }
 
 function updateBooks (aLibrary) {
@@ -66,7 +81,6 @@ function updateBooks (aLibrary) {
 
         let infoContent;
         if (element === 'status') {
-          console.log(element);
           infoContent = document.createElement('button');
           infoContent.setAttribute("id", "toggle-book-" + BOOKSCOUNT);
           infoContent.addEventListener("click", toggleReadStatus);
