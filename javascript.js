@@ -136,14 +136,19 @@ function toggleForm () {
 
 function handleForm (event) {
   event.preventDefault();
-  const newTitle = document.querySelector("#title").value;
-  const newAuthor = document.querySelector('#author').value;
-  const newPages = document.querySelector('#pages').value;
-  const newRead = document.querySelector('#status').checked;
+  const newTitle = document.querySelector("#title");
+  const newAuthor = document.querySelector('#author');
+  const newPages = document.querySelector('#pages');
+  const newRead = document.querySelector('#status');
 
   function read(stat) {return stat ? "Read" : "Unread"}
 
-  const newBook = new Book(newTitle, newAuthor, newPages, read(newRead));
+  const newBook = new Book(newTitle.value, newAuthor.value, newPages.value, read(newRead.checked));
+
+  newTitle.value = '';
+  newAuthor.value = '';
+  newPages.value = '';
+  newRead.checked = false;
 
   addBookToLibrary(newBook);
   moveButton();
